@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "TripAdvisor"
+  "defaultProject": "TripAdvisor",
+  "cli": {
+    "analytics": false
+  }
 }
