@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HotelComponentComponent } from './hotels/hotel-component/hotel-component.component';
 import { HotelsListingComponent } from './hotels/hotels-listing/hotels-listing.component';
+import { DateSectionComponent } from './hotels/date-section/date-section.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HotelComponentComponent,
-    HotelsListingComponent
+    HotelsListingComponent,
+    DateSectionComponent
   ],
   imports: [
     BrowserModule,
