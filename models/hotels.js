@@ -20,9 +20,11 @@ const HotelSchema = new Schema({
         children: Number,
         adults: Number,
         price: Number,
-        userId: Schema.Types.ObjectId
+        userId: Schema.Types.ObjectId,
+        Email: String,
+        phone: Number
     }],
-    location: {
+    map: {
         latitude: {
             type: Schema.Types.Decimal128
         },
@@ -40,8 +42,8 @@ const HotelSchema = new Schema({
     deals: [Schema.Types.ObjectId],
     amenities: [Schema.Types.ObjectId],
     class: Schema.Types.ObjectId,
-    address: {
-        streetname: String,
+    distance: {
+        mainstreet: Number,
         beach: Number,
         park: Number,
         citycenter: Number,

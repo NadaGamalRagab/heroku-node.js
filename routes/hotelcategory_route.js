@@ -7,9 +7,9 @@ module.exports = (app) => {
     app.post('/hotels/category',
         hotelcategoryController.create);
 
-    app.put('/hotels/catEgory/:id',
+    app.put('/hotels/category/:id',
         hotelcategoryController.edit);
 
-    app.delete('/hotels/catEgory/:id',
+    app.delete('/hotels/category/:id',
         hotelcategoryController.delete)
 }

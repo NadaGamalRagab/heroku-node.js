@@ -6,8 +6,8 @@ const ResturantRoutes = require('./routes/restaurant_route')
 const cruiseRoutes = require('./routes/cruise_route')
 const hotelcategoryRoutes = require('./routes/hotelcategory_route')
 const app = express();
-
-// // 4 make mongo connected
+var cors = require('cors')
+    // // 4 make mongo connected
 const mongoose = require('mongoose')
 mongoose.connect('mongodb+srv://mohamed:mohamed5@tripadvisorcluster.g48e8.mongodb.net/TripAdvisor?retryWrites=true&w=majority', {
         useNewUrlParser: true,
@@ -19,9 +19,9 @@ mongoose.connect('mongodb+srv://mohamed:mohamed5@tripadvisorcluster.g48e8.mongod
     // // //3 first middleware
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-
-// // //
-// // //
+app.use(cors())
+    // // //
+    // // //
 hotelRoutes(app)
 ResturantRoutes(app)
 shoppingRoutes(app)

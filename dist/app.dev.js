@@ -14,7 +14,10 @@ var cruiseRoutes = require('./routes/cruise_route');
 
 var hotelcategoryRoutes = require('./routes/hotelcategory_route');
 
-var app = express(); // // 4 make mongo connected
+var app = express();
+
+var cors = require('cors'); // // 4 make mongo connected
+
 
 var mongoose = require('mongoose');
 
@@ -28,7 +31,8 @@ mongoose.connect('mongodb+srv://mohamed:mohamed5@tripadvisorcluster.g48e8.mongod
 
 var bodyParser = require('body-parser');
 
-app.use(bodyParser.json()); // // //
+app.use(bodyParser.json());
+app.use(cors()); // // //
 // // //
 
 hotelRoutes(app);

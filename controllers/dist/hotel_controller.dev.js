@@ -5,15 +5,15 @@ var Hotels = require("../models/hotels");
 module.exports = {
   all: function all(req, res, next) {
     var limit = parseInt(req.query.limit) || '';
-    Hotels.find({}).limit(limit).then(function (hotel) {
-      return res.status(200).send(hotel);
+    Hotels.find({}).limit(limit).then(function (hotels) {
+      return res.status(200).send(hotels);
     })["catch"](next);
   },
   create: function create(req, res, next) {
     // next from middelware
     var hotelProps = req.body;
-    Hotels.create(hotelProps).then(function (hotel) {
-      return res.status(201).send(hotel);
+    Hotels.create(hotelProps).then(function (hotels) {
+      return res.status(201).send(hotels);
     }) // 201 to user
     ["catch"](next); // if error send to next middle ware
   },
@@ -30,8 +30,8 @@ module.exports = {
         _id: hotelsId
       });
     }) // //if you get user send it
-    .then(function (hotel) {
-      return res.status(200).send(hotel);
+    .then(function (hotels) {
+      return res.status(200).send(hotels);
     }) // //else send to middle
     ["catch"](next);
   },
@@ -41,8 +41,8 @@ module.exports = {
     Hotels.findByIdAndRemove({
       _id: hotelsId
     }) // in case is removed return 204 abject?
-    .then(function (hotel) {
-      return res.status(204).send(hotel);
+    .then(function (hotels) {
+      return res.status(204).send(hotels);
     })["catch"](next);
   }
 };

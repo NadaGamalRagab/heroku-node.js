@@ -1,19 +1,19 @@
 "use strict";
 
-var hotelcategory = require("../models/Category");
+var Hotelcategory = require("../models/Category");
 
 module.exports = {
   all: function all(req, res, next) {
     var limit = parseInt(req.query.limit) || '';
-    hotelcategory.find({}).limit(limit).then(function (cato) {
+    Hotelcategory.find({}).limit(limit).then(function (cato) {
       return res.status(200).send(cato);
     })["catch"](next);
   },
   create: function create(req, res, next) {
     // next from middelware
     var catoProps = req.body;
-    hotelcategory.create(catoProps).then(function (cato) {
-      return res.status(201).send(cato);
+    Hotelcategory.create(catoProps).then(function (hotelcategory) {
+      return res.status(201).send(hotelcategory);
     }) // 201 to user
     ["catch"](next); // if error send to next middle ware
   },
@@ -22,23 +22,23 @@ module.exports = {
     var catoId = req.params.id;
     var catoProps = req.body; // get user and update
 
-    hotelcategory.findByIdAndUpdate({
+    Hotelcategory.findByIdAndUpdate({
       _id: catoId
     }, catoProps) // if success get user after updated
     .then(function () {
-      return hotelcategory.findById({
+      return Hotelcategory.findById({
         _id: catoId
       });
     }) // //if you get user send it
-    .then(function (cato) {
-      return res.status(200).send(cato);
+    .then(function (hotelcategory) {
+      return res.status(200).send(hotelcategory);
     }) // //else send to middle
     ["catch"](next);
   },
   // //
   "delete": function _delete(req, res, next) {
     var catoId = req.params.id;
-    hotelcategory.findByIdAndRemove({
+    Hotelcategory.findByIdAndRemove({
       _id: catoId
     }).then(function (cato) {
       return res.status(204).send(cato);
