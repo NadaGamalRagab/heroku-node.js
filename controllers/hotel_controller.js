@@ -44,5 +44,13 @@ module.exports = {
             // in case is removed return 204 abject?
             .then(hotels => res.status(204).send(hotels))
             .catch(next);
+    },
+    getbyid(req, res, next) {
+        const {
+            id
+        } = req.params;
+        Hotels.findById(id).then(
+            hotels => res.status(200).json(hotels)).catch(next);;
+
     }
 };
