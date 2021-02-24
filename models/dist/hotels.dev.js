@@ -52,15 +52,18 @@ var HotelSchema = new Schema({
   langaugeSpoken: [Schema.Types.ObjectId],
   style: [String],
   reviews: [{
-    text: String,
-    rating: Number,
-    userID: Schema.Types.ObjectId
+    review: String,
+    user: Schema.Types.ObjectId
+  }],
+  rating: [{
+    rate: Number,
+    user: Schema.Types.ObjectId
   }],
   descripation: {
     text: String,
     lang: String
   },
-  likes: Number
+  likes: [Schema.Types.ObjectId]
 });
 var Hotels = mongoose.model('hotels', HotelSchema, 'hotels1');
 module.exports = Hotels;
