@@ -3,6 +3,8 @@ const hotelcategoryController = require('../controllers/hotelcato_controller');
 module.exports = (app) => {
     app.get('/hotels/category',
         hotelcategoryController.all);
+    app.get('/hotels/category/:id',
+        hotelcategoryController.getbyid);
 
     app.post('/hotels/category',
         hotelcategoryController.create);
