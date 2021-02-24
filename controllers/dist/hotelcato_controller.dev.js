@@ -43,5 +43,12 @@ module.exports = {
     }).then(function (cato) {
       return res.status(204).send(cato);
     })["catch"](next);
+  },
+  getbyid: function getbyid(req, res, next) {
+    var id = req.params.id;
+    Hotelcategory.findById(id).then(function (hotels) {
+      return res.status(200).json(hotels);
+    })["catch"](next);
+    ;
   }
 };

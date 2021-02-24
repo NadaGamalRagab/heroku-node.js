@@ -44,5 +44,13 @@ module.exports = {
 
         .then(cato => res.status(204).send(cato))
             .catch(next);
+    },
+    getbyid(req, res, next) {
+        const {
+            id
+        } = req.params;
+        Hotelcategory.findById(id).then(
+            hotels => res.status(200).json(hotels)).catch(next);;
+
     }
 };
