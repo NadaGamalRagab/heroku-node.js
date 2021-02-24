@@ -16,26 +16,26 @@ const HotelSchema = new Schema({
             type: Date,
             required: true
         },
-        room: Number,
+        rooms: Number,
         children: Number,
         adults: Number,
         price: Number,
         userId: Schema.Types.ObjectId,
-        Email: String,
+        email: String,
         phone: Number
     }],
     map: {
         latitude: {
             type: Schema.Types.Decimal128
         },
-        longtitude: {
+        longitude: {
             type: Schema.Types.Decimal128
         },
     },
-    pricedeals: [{
+    Pricedeals: [{
         name: String,
         link: String,
-        pricepernight: Number
+        pricePerNight: Number
     }],
     rooms: Number,
     images: [String],
@@ -43,12 +43,12 @@ const HotelSchema = new Schema({
     amenities: [Schema.Types.ObjectId],
     class: Schema.Types.ObjectId,
     distance: {
-        mainstreet: Number,
+        mainStreet: Number,
         beach: Number,
         park: Number,
         citycenter: Number,
     },
-    langaugespoken: [Schema.Types.ObjectId],
+    langaugeSpoken: [Schema.Types.ObjectId],
     style: [String],
     reviews: [{
         text: String,
