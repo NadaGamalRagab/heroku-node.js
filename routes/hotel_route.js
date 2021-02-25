@@ -3,8 +3,8 @@ const hotelController = require('../controllers/hotel_controller');
 module.exports = (app) => {
     app.get('/hotels',
         hotelController.all);
-    app.get('/hotels/:id',
-        hotelController.getbyid);
+    // app.get('/hotels/:id',
+    //     hotelController.getbyid);
 
     app.post('/hotels',
         hotelController.create);

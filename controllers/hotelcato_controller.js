@@ -50,7 +50,7 @@ module.exports = {
             id
         } = req.params;
         Hotelcategory.findById(id).then(
-            hotels => res.status(200).json(hotels)).catch(next);;
+            cato => res.status(200).json(cato)).catch(next);;
 
     }
 };

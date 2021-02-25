@@ -44,12 +44,12 @@ module.exports = {
     .then(function (hotels) {
       return res.status(204).send(hotels);
     })["catch"](next);
-  },
-  getbyid: function getbyid(req, res, next) {
-    var id = req.params.id;
-    Hotels.findById(id).then(function (hotels) {
-      return res.status(200).json(hotels);
-    })["catch"](next);
-    ;
-  }
+  } // getbyid(req, res, next) {
+  //     const {
+  //         id
+  //     } = req.params;
+  //     Hotels.findById(id).then(
+  //         hotels => res.status(200).json(hotels)).catch(next);;
+  // }
+
 };

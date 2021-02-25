@@ -46,8 +46,8 @@ module.exports = {
   },
   getbyid: function getbyid(req, res, next) {
     var id = req.params.id;
-    Hotelcategory.findById(id).then(function (hotels) {
-      return res.status(200).json(hotels);
+    Hotelcategory.findById(id).then(function (cato) {
+      return res.status(200).json(cato);
     })["catch"](next);
     ;
   }
