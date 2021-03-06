@@ -8,6 +8,7 @@ const hotelcategoryRoutes = require("./routes/hotelcategory_route");
 const resturantCategoryRoutes = require("./routes/resturantCategory_route");
 const citiesRoute = require("./routes/cities_route");
 const ShoppingCategoryRoutes = require("./routes/ShoppingCategory_route");
+const userRoutes = require("./routes/user.route");
 const app = express();
 var cors = require("cors");
 // // 4 make mongo connected
@@ -17,7 +18,12 @@ mongoose.connect(
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }
-);
+).then(() => {
+    console.log("Connected to database!");
+  })
+  .catch(() => {
+    console.log("Connection failed!");
+  });
 // // //
 // //
 // // /*** here oreder of middleware is important***/
@@ -36,6 +42,7 @@ UserRoutes(app);
 resturantCategoryRoutes(app);
 ShoppingCategoryRoutes(app);
 citiesRoute(app);
+app.use("/api/user", userRoutes);
 
 app.use((err, req, res, next) => {
     // any error should return from response
